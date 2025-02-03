@@ -6,9 +6,9 @@
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
+            <img class="masthead-avatar the-avatar mb-5" src="{{asset('assets/avatar.jpg')}}" alt="farmer" />
             <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
+            <h1 class="masthead-heading text-uppercase mb-0">Welcome To Golden Farm</h1>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
