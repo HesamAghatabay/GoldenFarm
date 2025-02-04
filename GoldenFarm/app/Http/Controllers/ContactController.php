@@ -12,7 +12,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        
+        return view('pages.contact');
     }
 
     /**
@@ -28,7 +29,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->name);
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
+        ]);
+        return redirect()->route('/contact');
     }
 
     /**

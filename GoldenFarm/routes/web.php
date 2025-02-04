@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,9 +13,8 @@ Route::get('/products', function () {
 Route::get('/about', function () {
     return view('pages.about');
 });
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
+
+Route::resource('contact', ContactController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
