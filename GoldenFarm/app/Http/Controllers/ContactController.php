@@ -51,17 +51,28 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        return view('pages.edit-contact', compact('contact'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        $contact->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
+        ]);
+        if (!$contact) {
+            return redirect()->back();
+        }
+        return redirect()->route('contact.index');
     }
 
     /**
