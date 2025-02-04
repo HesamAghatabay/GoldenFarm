@@ -14,7 +14,7 @@
             </div>
             <!-- Contact Section Form-->
             <div class="row justify-content-center">
-                <div class="col-lg-8 col-xl-7">
+                <div class="col-lg-8 col-xl-7 mb-4">
                     <!-- * * * * * * * * * * * * * * *-->
                     <!-- * * SB Forms Contact Form * *-->
                     <!-- * * * * * * * * * * * * * * *-->
@@ -77,6 +77,34 @@
                         <!-- Submit Button-->
                         <button class="btn btn-primary " id="" type="submit">Send</button>
                     </form>
+                </div>
+                <div class="col-9">
+                    @foreach ($contacts as $contact)
+                        <div class="card p-1 m-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="user ">
+                                    <p class="font-weight-bold text-primary mx-2">{{ $contact->name }}</p>
+                                    <p>{{ $contact->message }}</p>
+                                </div>
+                            </div>
+                            <div class="action d-flex justify-content-between mt-2 align-items-center">
+
+                                <div class="reply p-1">
+                                    <form action="/contact/{{ $contact->id }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-sm btn-danger" type="submit">remove</button>
+                                    </form>
+                                    <a class="btn btn-sm btn-warning" href="/contact/{{ $contact->id }}/edit">edit</a>
+                                </div>
+
+                                <div class="icons align-items-center">
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-check-circle-o check-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

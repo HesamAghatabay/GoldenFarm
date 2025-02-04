@@ -12,8 +12,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        
-        return view('pages.contact');
+        $contacts = Contact::latest()->get();
+        // dd($contacts);
+        return view('pages.contact', compact('contacts'));
     }
 
     /**
