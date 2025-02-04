@@ -89,13 +89,13 @@
                             </div>
                             <div class="action d-flex justify-content-between mt-2 align-items-center">
 
-                                <div class="reply p-1">
+                                <div class="reply p-1 d-flex">
                                     <form action="/contact/{{ $contact->id }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-sm btn-danger" type="submit">remove</button>
                                     </form>
-                                    <a class="btn btn-sm btn-warning" href="/contact/{{ $contact->id }}/edit">edit</a>
+                                    <a class="btn btn-sm btn-warning mx-1" href="/contact/{{ $contact->id }}/edit">edit</a>
                                 </div>
 
                                 <div class="icons align-items-center">

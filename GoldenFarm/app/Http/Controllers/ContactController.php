@@ -37,7 +37,7 @@ class ContactController extends Controller
             'phone' => $request->phone,
             'message' => $request->message,
         ]);
-        return redirect()->route('/contact');
+        return redirect()->route('contact.index');
     }
 
     /**
@@ -67,8 +67,9 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        Contact::findOrFail($id)->delete();
+        return redirect()->route('contact.index');
     }
 }
